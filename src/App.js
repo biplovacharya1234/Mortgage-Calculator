@@ -11,22 +11,23 @@ function App() {
 
   const[data, setData] = useState({
     homeValue:50000,
-    downPayment:25000,
-    loanAmount:1000,
+    downPayment:50000*0.1,
+    loanAmount:50000*0.9,
+    intrest:10,
     loanTerm:5
-  })
-
+  });
+  console.log(data)
   return (
     <div className="App">
       <Navbar />
-      <Container sx={{border:'2px solid white', mt:5}}>
-        <Grid container spacing={0} sx={{border:'2px solid red',mt:5, mb:5, p:2}}>
-          <Grid item md={6} xs={12} sx={{border: "2px solid pink",mt:5,mb:5, p:2, textAlign:'left'}}>
+      <Container sx={{mt:0}}>
+        <Grid container spacing={0} sx={{mt:0, mb:0, p:2}}>
+          <Grid item md={6} xs={12} sx={{mt:0,mb:0, p:2, textAlign:'left'}}>
             <SliderSelect data={data} setData={setData}/>
-            <TenureSelect />
+            <TenureSelect data={data} setData={setData}/>
           </Grid>
-          <Grid item md={6} xs={12}sx={{border: "2px solid green",mt:5,mb:5,p:2}}>
-            <Result />
+          <Grid item md={6} xs={12}sx={{mt:0,mb:0,p:2}} alignItems={'center'} justifyContent={'center'} margin={'auto'}>
+            <Result data={data}/>
           </Grid>
 
 
